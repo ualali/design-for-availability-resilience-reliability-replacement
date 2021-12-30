@@ -1,0 +1,33 @@
+[Connecting to database]
+---
+[ec2-user@ip-192-168-11-65 ~]$ mysql -u admin -p -h nd063project1mysqldb.c4oeahjol8mj.us-east-2.rds.amazonaws.com -D udacity
+Enter password: 
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 31
+Server version: 8.0.27 Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [udacity]> 
+
+[Inserting a record]
+---
+MySQL [udacity]> INSERT INTO tasks(title,priority)
+    -> VALUES('Writing to read replica in stand by region',2);
+ERROR 1290 (HY000): The MySQL server is running with the --read-only option so it cannot execute this statement
+
+[Reading from table]
+---
+MySQL [udacity]> SELECT * FROM tasks;
++---------+------------------------------+------------+----------+--------+----------+-------------+---------------------+
+| task_id | title                        | start_date | due_date | status | priority | description | created_at          |
++---------+------------------------------+------------+----------+--------+----------+-------------+---------------------+
+|       1 | Learn MySQL INSERT Statement | NULL       | NULL     |      0 |        1 | NULL        | 2021-12-30 02:45:06 |
++---------+------------------------------+------------+----------+--------+----------+-------------+---------------------+
+1 row in set (0.00 sec)
+

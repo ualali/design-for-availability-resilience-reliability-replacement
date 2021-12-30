@@ -1,0 +1,10 @@
+1. Minimum RTO for a single AZ outage: few minutes until switching to secondary instance in another AZ
+2. Minimum RTO for a single region outage: few minutes until we restore the a DB instance from the copied snapshot
+3. Minimum RPO for a single AZ outage: 0 because there's no data loss
+4. Minimum RPO for a single region outage: 5 minutes because of the period set by AWS in create snapshots
+
+
+References:
+- https://aws.amazon.com/blogs/database/amazon-rds-under-the-hood-single-az-instance-recovery/
+- https://acloud.guru/forums/aws-certified-solutions-architect-associate/discussion/-MDd7Kv-l9q-OgFV7Uea/Multi-AZ%20RTO%20and%20RPO
+- https://aws.amazon.com/blogs/database/cross-region-disaster-recovery-of-amazon-rds-for-sql-server/
